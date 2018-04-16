@@ -8,7 +8,11 @@
       #serverNameInput
       placeholder="Enter new server name">
     <label>Server Content</label>
-    <input type="text" class="form-control" [(ngModel)]="newServerContent" placeholder="Enter new server content">
+    <input 
+      type="text" 
+      class="form-control"
+      #serverContentInput
+      placeholder="Enter new server content">
     <br>
     <button
       class="btn btn-primary"
