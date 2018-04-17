@@ -1,4 +1,6 @@
-import { Component, OnInit, Input, ViewEncapsulation, OnChanges, SimpleChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation, OnChanges, SimpleChanges, DoCheck,
+  AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy,
+  ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-server-element',
@@ -13,8 +15,11 @@ AfterViewInit, AfterViewChecked, OnDestroy {
 
   @Input() name;
 
+  @ViewChild('heading') header: ElementRef;
+
   constructor() {
     console.log('In constructor()');
+    console.log('Text content: ' + this.header);
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -40,6 +45,7 @@ AfterViewInit, AfterViewChecked, OnDestroy {
 
   ngAfterViewInit() {
     console.log('In ngAfterViewInit()');
+    console.log('Text content-2: ' + this.header.nativeElement.textContent);
   }
 
   ngAfterViewChecked() {
