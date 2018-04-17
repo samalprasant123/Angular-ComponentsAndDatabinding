@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, ViewEncapsulation, OnChanges, SimpleChanges, DoCheck,
   AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy,
-  ViewChild, ElementRef } from '@angular/core';
+  ViewChild, ElementRef, ContentChild } from '@angular/core';
 
 @Component({
   selector: 'app-server-element',
@@ -17,9 +17,12 @@ AfterViewInit, AfterViewChecked, OnDestroy {
 
   @ViewChild('heading') header: ElementRef;
 
+  @ContentChild('contentParagraph') paragraph: ElementRef;
+
   constructor() {
     console.log('In constructor()');
     console.log('Text content: ' + this.header);
+    console.log('Paragraph content: ' + this.paragraph);
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -37,6 +40,7 @@ AfterViewInit, AfterViewChecked, OnDestroy {
 
   ngAfterContentInit() {
     console.log('In ngAfterContentInit()');
+    console.log('Paragraph content-2: ' + this.paragraph.nativeElement.textContent);
   }
 
   ngAfterContentChecked() {
